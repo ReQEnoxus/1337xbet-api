@@ -1,0 +1,67 @@
+POST http://localhost:1337/api/signIn
+Content-Type: application/json
+
+{
+  "login" : "enoxus",
+  "password": "qwerty"
+}
+
+
+###
+
+GET http://localhost:1337/api/users/self
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMyIsImxvZ2luIjoiZW5veHVzIiwic3RhdGUiOiJBRE1JTiJ9.CGk8g59pfSO5rrg7AAtslzWinbuo7Uv_aK8tePV9vok
+
+###
+
+GET http://localhost:1337/api/bets/
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMyIsImxvZ2luIjoiZW5veHVzIiwic3RhdGUiOiJBRE1JTiJ9.CGk8g59pfSO5rrg7AAtslzWinbuo7Uv_aK8tePV9vok
+
+###
+
+POST http://localhost:1337/api/bets/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMyIsImxvZ2luIjoiZW5veHVzIiwic3RhdGUiOiJBRE1JTiJ9.CGk8g59pfSO5rrg7AAtslzWinbuo7Uv_aK8tePV9vok
+
+{
+  "matchId" : 326053,
+  "prediction": 0,
+  "amount": 1000
+}
+
+###
+
+GET http://localhost:1337/api/matches/search?query=&date=2020-04-18&page=0&size=10
+
+###
+
+GET http://localhost:1337/api/matches/search?query=Dinamo&date=2020-04-18&page=0&size=10
+
+###
+
+GET http://localhost:1337/api/comments/326053
+
+###
+
+POST http://localhost:1337/api/comments/createComment
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMyIsImxvZ2luIjoiZW5veHVzIiwic3RhdGUiOiJBRE1JTiJ9.CGk8g59pfSO5rrg7AAtslzWinbuo7Uv_aK8tePV9vok
+
+{
+  "matchId" : 326053,
+  "text" : "comment from api"
+}
+
+###
+
+POST http://localhost:1337/api/comments/createReply
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMyIsImxvZ2luIjoiZW5veHVzIiwic3RhdGUiOiJBRE1JTiJ9.CGk8g59pfSO5rrg7AAtslzWinbuo7Uv_aK8tePV9vok
+
+{
+  "matchId" : 326053,
+  "text" : "reply from api",
+  "parentId": 14
+}
+
+###

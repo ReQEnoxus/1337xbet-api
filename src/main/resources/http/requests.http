@@ -65,3 +65,17 @@ Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMyIsImxvZ2luIjoiZW5veHVzIiwic3Rh
 }
 
 ###
+
+POST http://localhost:1337/api/signUp
+Content-Type: application/json
+
+{
+  "lastName": "Афанасьев",
+  "password": "qwerty",
+  "phoneNumber": "79274553029",
+  "name": "Никита",
+  "login": "SignupFromApi",
+  "email": "mail@example.com"
+}
+
+###

@@ -15,6 +15,8 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @SpringBootApplication
 @EnableSwagger2
@@ -26,6 +28,11 @@ public class XbetApiApplication {
         df.setRoundingMode(RoundingMode.FLOOR);
 
         return df;
+    }
+
+    @Bean
+    public ExecutorService executorService() {
+        return Executors.newFixedThreadPool(20);
     }
 
     @Bean

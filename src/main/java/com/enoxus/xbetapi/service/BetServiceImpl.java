@@ -39,7 +39,7 @@ public class BetServiceImpl implements BetService {
 
     @Override
     public List<BetViewDto> getBetsByOwnerLogin(String login) {
-        return betsRepository.getAllByOwnerLogin(login).stream()
+        return userRepository.findUserByLogin(login).orElseThrow(IllegalArgumentException::new).getActiveBets().stream()
                 .map(bet -> BetViewDto.builder()
                         .active(bet.isActive())
                         .amount(bet.getAmount())

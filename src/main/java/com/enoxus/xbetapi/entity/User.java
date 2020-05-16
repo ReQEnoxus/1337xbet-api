@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -28,6 +30,10 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "file_info_id")
     private FileInfo avatar;
+
+    @OneToMany(mappedBy = "owner")
+    @Where(clause = "active = true")
+    private List<Bet> activeBets;
 
     @Enumerated(value = EnumType.STRING)
     private State state;

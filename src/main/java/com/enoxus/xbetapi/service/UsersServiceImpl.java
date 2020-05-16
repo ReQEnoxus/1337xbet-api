@@ -17,16 +17,7 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public Optional<UserDto> getUserByLogin(String login) {
-        return userRepository.findUserByLogin(login).map(user -> UserDto.builder()
-                .avatarPath(user.getAvatar().getStorageFileName())
-                .balance(user.getBalance())
-                .email(user.getEmail())
-                .id(user.getId())
-                .lastName(user.getLastName())
-                .name(user.getName())
-                .login(user.getLogin())
-                .state(user.getState().name())
-                .build());
+        return Optional.of(userRepository.getUserDtoByLogin(login));
     }
 
     @Override
